@@ -89,7 +89,7 @@ Running the Automation
 **Manual Script Testing (for troubleshooting):**
 ```
 cscript //nologo "C:\Path\To\Scripts\CheckEMLSignature.vbs" "C:\Path\To\Input__EML_folder\"
-cscript //nologo "C:\Path\To\Scripts\eml2pdf.vbs" "C:\Path\To\Input\Input__EML_folder\Signed\ "C:\Path\To\Output\"
+cscript //nologo "C:\Path\To\Scripts\eml2pdf.vbs" "C:\Path\To\Input\Input__EML_folder\Signed\" "C:\Path\To\Output\"
 ```
 
 Logging 
