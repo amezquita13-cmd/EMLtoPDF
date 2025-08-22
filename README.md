@@ -53,7 +53,7 @@ What the VB Scripts Do
 
 Workflow Details
 ----------------
-**Workflow 1 — Signature Filter**
+**UiPath Workflow 1 — Signature Filter**
 1. UiPath reads 2 paths (`InputFolder` --> conatains all EML files, and the path of the CheckEMLSignature.vbs script).
 2. UiPath uses the paths to execute the CheckEMLSignature.vbs script:
    ```
@@ -66,7 +66,7 @@ Workflow Details
 7. The EML files who are not digitally signed are moved to a sepreate folder (Input\Notsigned)
 6. Invokes Workflow 2 
 
-**Workflow 2 — Signed EML → PDF**
+**UiPath Workflow 2 — Signed EML → PDF**
 1. Receive the filtered list of signed `.eml` paths.
 2. For each file, compute the destination:
    - `OutputPath = <OutputFolder>\<BaseName>.pdf`
