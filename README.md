@@ -54,24 +54,25 @@ What the VB Scripts Do
 Workflow Details
 ----------------
 **Workflow 1 — Signature Filter**
-1. Read all `*.eml` in `InputFolder`.
-2. For each file, run:
+1. UiPath reads 2 paths (`InputFolder` --> conatains all EML files, and the path of the CheckEMLSignature.vbs script).
+2. UiPath uses the paths to execute the CheckEMLSignature.vbs script:
    ```
-   cscript //nologo "<ScriptsFolder>\CheckEMLSignature.vbs" "<FullPathToEmL>"
+   cscript //nologo "<ScriptsFolder>\CheckEMLSignature.vbs" "<InputFolder>"
    ```
 3. Parse stdout. If `SIGNED`, add to an in‑memory list.
 4. (Optional) Persist the list to `Logs/SignedList.csv` for traceability.
 5. Log stdout, stderr, and exit codes for each file.
-6. The signed EML files were moved to the Filtered folder (Input\signed)
+6. The digitally signed EML files are moved to the Filtered folder (Input\signed)
+7. The EML files who are not digitally signed are moved to a sepreate folder (Input\Notsigned)
 6. Invokes Workflow 2 
 
 **Workflow 2 — Signed EML → PDF**
 1. Receive the filtered list of signed `.eml` paths.
 2. For each file, compute the destination:
    - `OutputPath = <OutputFolder>\<BaseName>.pdf`
-3. Run:
+3. Run to convert EML to PDF:
    ```
-   cscript //nologo "<ScriptsFolder>\eml2pdf.vbs" "<FullPathToEmL>" "<OutputPath>"
+   cscript //nologo "<ScriptsFolder>\eml2pdf.vbs" "<FullPathToSignedEML>" "<OutputPath>"
    ```
 4. Log stdout/stderr and exit code.
 5. On success, verify file exists and is non‑empty; log “Converted” with the PDF path.
