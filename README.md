@@ -1,7 +1,7 @@
-EMLtoPDF Automation — End‑to‑End README
+UiPath + VBScripts - EMLtoPDF Automation — End‑to‑End README
 ====================================
 
-IMPORTANT!: If you updated the argument names in UiPath. Then you'll need to update the command files under folder 'VBA Command Files'. These files are used by UiPath to invoke the Shell/VBScripts. 
+IMPORTANT!: If you update the argument names in UiPath. Then you'll need to update the command files under folder 'VBA Command Files'. These files are used by UiPath to invoke the Shell/VBScripts. 
 
 Overview
 --------
